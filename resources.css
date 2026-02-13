@@ -1,0 +1,173 @@
+:root{ --blue:#0b5588; }
+*{box-sizing:border-box}
+body{font-family:'Cairo',system-ui,Arial sans-serif;margin:0;background:#fff;color:#111}
+.container{max-width:1150px;margin:0 auto;padding:14px 20px}
+.site-header{border-bottom:4px solid #e6eef5}
+.btn{display:inline-block;background:var(--blue);color:#fff;padding:10px 16px;border-radius:10px;text-decoration:none;font-weight:600}
+
+/* Header / nav styles (matched to main site) */
+.container{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand .logo-mark{width:44px;height:44px;background:var(--blue);color:#fff;border-radius:10px;display:grid;place-items:center;font-weight:700}
+.site-logo{height:48px;display:block;margin-inline-start:8px}
+.main-nav{flex:1;display:flex;justify-content:center}
+.main-nav ul{list-style:none;margin:0;padding:0;display:flex;gap:28px;align-items:center}
+.main-nav a{color:#222;text-decoration:none;font-weight:500}
+.main-nav a:hover{color:var(--blue)}
+
+
+.resources-section{padding:40px 0}
+.resources-container{display:flex;flex-direction:column;gap:18px}
+.student-head {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* عمودي */
+    align-items: center;
+    /* أفقي */
+    text-align: center;
+}.section-title{color:var(--blue);font-size:32px;margin-bottom:6px}
+.resources-head{display:flex;flex-direction:column;align-items:center;text-align:center}    
+.resource-list{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.resource-item{background:#fff;border-radius:16px;padding:28px;box-shadow:0 18px 40px rgba(11,85,136,0.06);text-align:right;position:relative;overflow:hidden;min-height:180px;display:flex;flex-direction:column;justify-content:space-between}
+.resource-item:nth-child(1){background:linear-gradient(135deg,#e8f1ff,#f4fbff)}
+.resource-item:nth-child(2){background:linear-gradient(135deg,#fff2f2,#fff8f6)}
+.resource-item:nth-child(3){background:linear-gradient(135deg,#e8fffb,#f2fffe)}
+.resource-item:nth-child(4){background:linear-gradient(135deg,#f6f5ff,#fbfbff)}
+.resource-item h3{margin:0 0 8px;color:var(--blue);font-size:18px}
+.resource-desc{color:#6b6b6b;margin-bottom:12px}
+.resource-cta{display:inline-block;background:linear-gradient(90deg,var(--blue),#0c74b0);color:#fff;padding:12px 18px;border-radius:12px;text-decoration:none;font-weight:700;box-shadow:0 8px 20px rgba(11,85,136,0.08)}
+.resource-cta:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(11,85,136,0.12)}
+/* Responsive: 1 column on small, 2 on medium, 4 on large */
+@media (max-width:599px){ .resource-list{grid-template-columns:1fr} }
+@media (min-width:600px) and (max-width:1099px){ .resource-list{grid-template-columns:repeat(2,1fr)} }
+@media (min-width:1100px){ .resource-list{grid-template-columns:repeat(4,1fr)} }
+
+
+
+
+
+/* Student tools section */
+
+
+.student-tools {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.student-tools {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 18px
+
+}
+
+/* الرأس */
+.student-head {
+    text-align: right;
+    margin-bottom: 28px;
+}
+
+.student-title {
+    color: var(--blue);
+    font-size: 24px;
+    margin: 0 0 8px;
+}
+
+.student-sub {
+    color: #6b6b6b;
+    margin: 0;
+    font-size: 15px;
+}
+
+.student-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 22px;
+    margin-top: 20px;
+    margin-bottom: 25px;
+}
+
+/* توسيط المحتوى إذا كان أقل من عرض الشاشة */
+.student-cards:has(.student-card:only-child) {
+    justify-items: center;
+}
+
+/* الكرت */
+.student-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 26px;
+    box-shadow: 0 10px 28px rgba(11, 85, 136, 0.06);
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: .3s ease;
+}
+
+.student-card:hover {
+    transform: translateY(-6px);
+}
+
+/* ألوان الخلفيات */
+.card-account {
+    background: linear-gradient(180deg, #f8f2ff, #fff);
+}
+
+.card-email {
+    background: linear-gradient(180deg, #fff6ef, #fff);
+}
+
+.card-lms {
+    background: linear-gradient(180deg, #f2fff7, #fff);
+}
+
+/* العناوين */
+.student-card h3 {
+    margin: 0 0 8px;
+    color: var(--blue);
+    font-size: 18px;
+}
+
+.resource-desc {
+    font-size: 14px;
+    color: #555;
+}
+
+/* زر الرابط */
+.resource-cta {
+    display: inline-block;
+    margin-top: 12px;
+    font-weight: 600;
+}
+
+/* الملاحظة */
+.student-note {
+    margin-top: 30px;
+    background: #eef7ff;
+    border: 1px solid rgba(11, 85, 136, 0.08);
+    padding: 20px;
+    border-radius: 14px;
+    color: #0b4770;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* تحسين الموبايل */
+@media (max-width:768px) {
+    .student-title {
+        font-size: 20px;
+    }
+
+    .student-card {
+        padding: 20px;
+        min-height: auto;
+    }
+
+    .student-note {
+        font-size: 13px;
+    }
+}
+/* student-cards are stacked vertically by default (no responsive grid needed) */

@@ -1,0 +1,256 @@
+:root{
+  --blue:#0b5588;
+  --muted:#6b6b6b;
+}
+*{box-sizing:border-box}
+body{font-family:'Cairo',system-ui,Arial sans-serif;margin:0;background:#fff;color:#111}
+header.site-header{border-bottom:4px solid #e6eef5}
+.container{max-width:1150px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+
+/* Logo (right) */
+.brand{display:flex;align-items:center;gap:12px}
+.brand .logo-mark{width:44px;height:44px;background:var(--blue);color:#fff;border-radius:10px;display:grid;place-items:center;font-weight:700}
+.site-logo{height:48px;display:block;margin-inline-start:8px}
+
+/* Navigation centered */
+nav.main-nav{flex:1;display:flex;justify-content:center}
+nav.main-nav ul{list-style:none;margin:0;padding:0;display:flex;gap:34px;align-items:center}
+nav.main-nav a{color:#222;text-decoration:none;font-weight:500}
+nav.main-nav a:hover{color:var(--blue)}
+
+/* CTA button left */
+.cta{margin-left:auto}
+.btn{display:inline-block;background:var(--blue);color:#fff;padding:10px 16px;border-radius:10px;text-decoration:none;font-weight:600;box-shadow:0 4px 0 rgba(11,85,136,0.12)}
+
+/* Responsive tweaks */
+@media (max-width:800px){
+  .container{padding:12px}
+  nav.main-nav ul{gap:18px;font-size:14px}
+}
+@media (max-width:560px){
+  nav.main-nav{display:none}
+}
+
+/* Hero section matching the provided design */
+.hero{background:linear-gradient(to bottom,#f0f6fb 0%, #fff0f4 100%);padding:48px 0 80px}
+.hero-inner{display:block;text-align:center}
+.hero-title{font-size:46px;color:var(--blue);margin:6px 0 14px;font-weight:700}
+.hero-sub{max-width:820px;margin:0 auto;color:#6b6b6b;font-size:18px;line-height:1.8}
+
+.cards{display:flex;gap:28px;margin-top:40px;justify-content:space-between}
+.card{background:#fff;border-radius:12px;flex:1;min-height:160px;padding:28px 28px 22px;box-shadow:0 8px 18px rgba(11,85,136,0.06);text-align:right;position:relative}
+.card + .card{margin-left:12px}
+.card-icon{width:52px;height:52px;border-radius:10px;display:grid;place-items:center;font-size:22px;color:#fff;position:absolute;top:18px;left:18px}
+.bg-accent-green{background:#dff7e6;color:#16a34a}
+.bg-pink{background:#ffecf7;color:#ff2e9f}
+.bg-blue{background:#083c6b;color:#fff}
+.card-title{color:var(--blue);font-size:20px;margin:48px 0 8px;font-weight:700}
+.card-desc{color:#7b7b7b;font-size:13px}
+
+@media (max-width:980px){
+  .hero-title{font-size:38px}
+  .cards{gap:18px}
+}
+@media (max-width:760px){
+  .cards{flex-direction:column}
+  .card{width:100%}
+}
+
+@media (max-width:980px){
+  .pill-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:560px){
+  .pill-grid{grid-template-columns:1fr}
+  .section-title{font-size:22px}
+}
+
+/* Programs: separate semantic sections so they can be styled independently */
+.programs-institutes,
+.programs-bachelor{
+  width:100%;
+  margin-bottom:28px;
+}
+
+.programs-institutes .pill-grid,
+.programs-bachelor .pill-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+}
+
+@media (max-width:760px){
+  .programs-institutes .pill-grid,
+  .programs-bachelor .pill-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+/* Ensure the programs container stacks its child sections vertically
+   (overrides the global .container which is a flex row) */
+.programs > .container{
+  display:flex;
+  flex-direction:column;
+  align-items:stretch;
+  gap:20px;
+}
+
+/* Pill grid & items for programs (base styles) */
+.programs{padding:40px 0}
+.programs .section-title{font-size:28px;color:var(--blue);text-align:center;margin-bottom:6px}
+.programs .section-sub{color:var(--muted);text-align:center;margin:0 0 16px}
+
+.pill-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:start}
+.pill{background:transparent;padding:10px 12px;border-radius:8px;text-align:right;font-size:16px;color:#222}
+.pill .pill-icon{margin-inline-start:8px;color:var(--blue);font-weight:700}
+
+/* Specific styling for institutes: 2 columns, larger pills, visible card look */
+.programs-institutes .pill-grid{
+  grid-template-columns:repeat(2,1fr);
+  gap:20px;
+}
+.programs-institutes .pill{
+  font-size:18px;
+  padding:14px 18px;
+  background:linear-gradient(180deg,#eaf4ff 0%, #ffffff 100%);
+  border:1px solid rgba(11,85,136,0.12);
+  border-radius:12px;
+  box-shadow:0 12px 30px rgba(11,85,136,0.06);
+  color:#07293f;
+}
+.programs-institutes .pill .pill-icon{font-size:18px;color:var(--blue);margin-inline-start:10px}
+
+/* Bachelor programs: slightly denser grid for more items */
+.programs-bachelor .pill-grid{grid-template-columns:repeat(3,1fr);gap:18px}
+.programs-bachelor .pill{font-size:16px;padding:12px 14px;background:linear-gradient(180deg,#fbfff7 0%, #ffffff 100%);border-radius:10px;border:1px solid rgba(34,140,82,0.08);box-shadow:0 8px 20px rgba(34,140,82,0.03);color:#12321f}
+
+/* make pill icons stand out with a small badge */
+.pill .pill-icon{display:inline-block;min-width:28px;text-align:center}
+
+@media (max-width:980px){
+  .pill-grid{grid-template-columns:repeat(2,1fr)}
+}
+
+@media (max-width:760px){
+  .pill-grid{grid-template-columns:1fr}
+  .programs .section-title{font-size:22px}
+}
+
+/* Fees section styles */
+.fees-section{padding:48px 0;display:flex;align-items:center;justify-content:center;min-height:60vh}
+.fees-title{font-size:34px;color:var(--blue);text-align:center;margin:6px 0}
+.fees-sub{text-align:center;color:#6b6b6b;margin-bottom:18px}
+.fees-grid{display:flex;flex-direction:column;gap:18px;align-items:center;max-width:980px;width:100%}
+.fees-card-wrap{align-self:center}
+.fees-title-wrap{align-self:center;text-align:center}
+.fees-center{display:flex;flex-direction:column;align-items:center}
+.fees-tabs{display:flex;gap:18px;justify-content:center;margin-bottom:22px}
+.fees-tabs .tab{background:#eaf4ff;border-radius:12px;padding:12px 26px;border:2px solid transparent;font-weight:600;color:var(--blue);cursor:pointer}
+.fees-tabs .tab.active{background:#fff;border-color:var(--blue);box-shadow:0 6px 0 rgba(11,85,136,0.06)}
+
+.fees-card{background:#fff;border-radius:10px;box-shadow:0 8px 18px rgba(11,85,136,0.04);overflow:hidden}
+.fees-card-header{background:linear-gradient(90deg,#e9f0fb,#f9eef2);padding:28px;text-align:left;color:var(--blue);font-weight:700;font-size:20px}
+.fees-table{width:100%;border-collapse:collapse}
+.fees-table td{padding:18px 22px;border-bottom:1px solid #f0f0f0}
+.fees-table td:last-child{text-align:left;color:var(--blue);font-weight:700}
+.fees-table td:first-child{text-align:right;color:#333}
+
+.fees-tables{display:grid;grid-template-columns:1fr 1fr;gap:18px;padding:18px}
+.fees-table-card{background:transparent;border-radius:8px}
+.fees-table-title{font-weight:700;color:var(--blue);padding:12px 6px 8px;text-align:right}
+
+@media (max-width:900px){
+  .fees-tables{grid-template-columns:1fr;}
+}
+
+@media (max-width:760px){
+  .fees-tabs{flex-direction:row;gap:12px}
+  .fees-card-header{text-align:center}
+  .fees-table td{padding:14px}
+}
+
+@media (max-width:1000px){
+  /* keep vertical on smaller screens; center-align title and card for narrow view */
+  .fees-title{order:0;text-align:center}
+  .fees-center{order:1}
+  .fees-card-wrap{order:2;align-self:center}
+  .fees-title-wrap{align-self:center}
+}
+
+/* Calculator styles */
+.calculator-section{padding:48px 0;background:linear-gradient(180deg,#fbfdff,#fff);}
+.calculator-card{background:#fff;border-radius:12px;padding:22px;box-shadow:0 8px 24px rgba(11,85,136,0.06)}
+.calculator-title{color:var(--blue);font-size:20px;margin:0 0 6px}
+.calculator-sub{color:#6b6b6b;margin:0 0 18px}
+.calc-row{display:flex;align-items:center;gap:12px;margin:12px 0}
+.calc-row label{min-width:140px;color:#333}
+.calc-control{flex:1}
+.calc-badge{width:48px;height:48px;background:var(--blue);color:#fff;border-radius:8px;display:grid;place-items:center;font-weight:700}
+.calc-results{margin-top:18px;background:#fafafa;border-radius:8px;padding:14px}
+.detail-row{display:flex;justify-content:space-between;padding:8px 6px}
+.divider{height:1px;background:#eee;margin:12px 0}
+.total-row{font-size:20px;color:var(--blue);font-weight:700}
+
+@media (max-width:760px){
+  .calc-row{flex-direction:column;align-items:stretch}
+  .calc-row label{min-width:0}
+  .calc-badge{justify-self:start}
+}
+
+/* option button groups */
+.opt-group{display:inline-flex;border-radius:10px;overflow:hidden;border:1px solid rgba(11,85,136,0.08)}
+.opt-btn{background:#f6f9fc;border:none;padding:10px 18px;cursor:pointer;color:var(--blue);font-weight:600}
+.opt-btn.active{background:var(--blue);color:#fff}
+
+.notes{margin-top:18px;display:flex;flex-direction:column;gap:10px}
+.note{padding:14px;border-radius:8px;border:1px solid transparent}
+.note-yellow{background:#fff8e1;border-color:#f0e3a8;color:#5a4b00}
+.note-pink{background:#fff3fb;border-color:#f0dff8;color:#5a2a7a}
+
+/* Documents required section */
+.documents-section{padding:40px 0}
+.documents-section > .container{display:flex;flex-direction:column;gap:18px;align-items:center}
+.docs-wrap{display:flex;flex-direction:column;gap:18px;align-items:flex-start}
+.docs-tabs{display:flex;flex-direction:row;gap:10px;overflow:auto;margin-bottom:12px}
+.docs-tab{padding:12px 14px;border-radius:10px;background:#f6f9fc;border:1px solid rgba(11,85,136,0.06);cursor:pointer;text-align:right;font-weight:600;color:var(--blue)}
+.docs-tab.active{background:var(--blue);color:#fff;border-color:var(--blue)}
+.docs-content{flex:1;background:#fff;border-radius:10px;padding:18px;box-shadow:0 10px 28px rgba(11,85,136,0.08);min-height:180px}
+.docs-note{color:#6b6b6b;margin-bottom:12px;white-space:normal;word-break:break-word;line-height:1.5;max-width:720px;min-height:3em}
+.docs-list{display:block;list-style:none;padding:0;margin:0}
+.docs-list li{background:#fff;padding:16px;border-radius:12px;border:1px solid #e6eef5;text-align:right;margin-bottom:12px;display:block;width:100% !important;max-width:100% !important;box-sizing:border-box;font-size:16px;box-shadow:0 6px 18px rgba(11,85,136,0.06);transition:transform .18s ease,box-shadow .18s ease;float:none !important}
+
+/* Strong overrides to prevent side-by-side layout from other rules */
+.docs-content .docs-list{display:block !important}
+.docs-content .docs-list li{display:block !important;width:100% !important;max-width:100% !important;margin-left:0 !important;margin-right:0 !important}
+.docs-list li:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(11,85,136,0.10)}
+
+@media (max-width:900px){
+  .docs-wrap{flex-direction:column}
+  .docs-tabs{flex-direction:row;overflow:auto;min-width:0}
+  .docs-tab{white-space:nowrap}
+  .docs-list{grid-template-columns:1fr}
+}
+
+/* Important notes box below documents */
+.docs-important-notes{background:#fff9e6;border:1px solid #f0e3a8;padding:16px;border-radius:10px;margin-top:14px;color:#5a4b00}
+.docs-important-notes h4{margin:0 0 8px;font-weight:700;color:#7a4f00}
+.docs-important-notes ul{margin:0;padding:0 0 0 18px}
+.docs-important-notes li{margin:6px 0}
+
+/* outside notes (separate box) */
+.docs-important-notes-outside{background:#fff9e6;border:1px solid #f0e3a8;padding:18px;border-radius:12px;margin-top:18px;color:#5a4b00;display:block}
+.docs-important-notes-outside .notes-header{display:flex;align-items:center;gap:8px;margin-bottom:8px;color:#7a4f00}
+.docs-important-notes-outside .pin{font-size:18px}
+.docs-important-notes-outside ul{list-style:none;margin:0;padding:0}
+.docs-important-notes-outside li{position:relative;padding-right:34px;margin:10px 0;padding-left:12px}
+.docs-important-notes-outside li:before{content:'✔';position:absolute;right:8px;top:50%;transform:translateY(-50%);background:transparent;color:#2e7d32;font-weight:700;border-radius:50%;font-size:14px}
+
+/* Resources / links section */
+.resources-section{padding:40px 0}
+.resource-list{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.resource-item{background:#fff;border-radius:12px;padding:18px;box-shadow:0 8px 18px rgba(11,85,136,0.04);text-align:right}
+.resource-item h3{margin:0 0 8px;color:var(--blue)}
+.resource-item a{color:var(--blue);text-decoration:underline}
+
+@media (max-width:900px){
+  .resource-list{grid-template-columns:1fr}
+}
